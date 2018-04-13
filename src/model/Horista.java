@@ -3,8 +3,8 @@ package model;
 public class Horista extends Empregado {
 	
 	private Integer idHorista;
-	private float precoHora;
-	private float horasTrabalhadas;
+	private String precoHora;
+	private String horasTrabalhadas;
 	
 	public Integer getIdHorista() {
 		return idHorista;
@@ -12,17 +12,18 @@ public class Horista extends Empregado {
 	public void setIdHorista(Integer idHorista) {
 		this.idHorista = idHorista;
 	}
-	public float getPrecoHora() {
+	public String getPrecoHora() {
 		return precoHora;
 	}
-	public void setPrecoHora(float precoHora) {
+	public void setPrecoHora(String precoHora) {
 		this.precoHora = precoHora;
 	}
-	public float getHorasTrabalhadas() {
+	public String getHorasTrabalhadas() {
 		return horasTrabalhadas;
 	}
-	public void setHorasTrabalhadas(float horasTrabalhadas) {
+	public void setHorasTrabalhadas(String horasTrabalhadas) {
 		this.horasTrabalhadas = horasTrabalhadas;
+		
 	}
 	
 	

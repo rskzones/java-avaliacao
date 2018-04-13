@@ -3,8 +3,8 @@ package model;
 public class Comissionado extends Empregado {
 	
 	private Integer idComissionado;
-	private float totalVenda;
-	private float totalComissao;
+	private String totalVenda;
+	private String taxaComissao;
 		
 	public Integer getIdComissionado() {
 		return idComissionado;
@@ -12,18 +12,17 @@ public class Comissionado extends Empregado {
 	public void setIdComissionado(Integer idComissionado) {
 		this.idComissionado = idComissionado;
 	}
-	public float getTotalVenda() {
+	public String getTotalVenda() {
 		return totalVenda;
 	}
-	public void setTotalVenda(float totalVenda) {
+	public void setTotalVenda(String totalVenda) {
 		this.totalVenda = totalVenda;
 	}
-	public float getTotalComissao() {
-		return totalComissao;
+	public String getTaxaComissao() {
+		return taxaComissao;
 	}
-	public void setTotalComissao(float totalComissao) {
-		this.totalComissao = totalComissao;
+	public void setTaxaComissao(String taxaComissao) {
+		this.taxaComissao = taxaComissao;
 	}
-		
 	
 }
