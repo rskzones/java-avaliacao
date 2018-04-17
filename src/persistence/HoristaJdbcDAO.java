@@ -19,20 +19,15 @@ import model.Horista;
 	}
 	
 	public void salvar(Horista c) throws SQLException {
-	String sql = "insert into Horista(salario ) values ('"+c.getPrecoHora()+"','"+ c.getHorasTrabalhadas()+"')";
+	String sql = "insert into tbHorista(salario) values ('"+c.getPrecoHora()+"','"+ c.getHorasTrabalhadas()+"')";
 	System.out.println(sql);
 	PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
 	prepareStatement.executeUpdate();
 	prepareStatement.close();
 	}
-	public void listar1() {
-	String sql = "select * from horista";
-	System.out.println(sql);
-	
-	}
 	
 	public List<Horista> listar() {
-		String sql = "select * from horista";
+		String sql = "select * from tbHorista";
 	    System.out.println(sql);
 	List<Horista> horista = new ArrayList<Horista>();
 	try {
@@ -57,5 +52,28 @@ import model.Horista;
 	}
 	return horista;
 	}
-
+	public void alterar(Horista c) throws SQLException {
+		String sql = "update tbHorista set precoHora='"+c.getPrecoHora()+"',horasTrabalhadas='"+c.getPrecoHora()+"'where idHorista='"+c.getIdHorista()+"';";
+		System.out.println(sql);
+		PreparedStatement prepareStatement;
+		try {
+			prepareStatement = this.conn.prepareStatement(sql);
+			prepareStatement.executeUpdate();
+            prepareStatement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}		
+	}
+	
+	public void excluir(int id) {
+		String sql = "delete from horista where idHorista='"+id+"';";
+		System.out.println(sql);
+        try {
+    		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
+    		prepareStatement.executeUpdate();
+			prepareStatement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}             		
+	}
 }

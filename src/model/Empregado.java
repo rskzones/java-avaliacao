@@ -1,10 +1,18 @@
 package model;
 
 public class Empregado {
-
+	
+	private Integer idEmpregado;
 	private String nome;
 	private String sobrenome;
 	private String CPF;
+	
+	public Integer getIdEmpregado() {
+		return idEmpregado;
+	}
+	public void setIdEmpregado(Integer idEmpregado) {
+		this.idEmpregado = idEmpregado;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -23,6 +31,7 @@ public class Empregado {
 	public void setCPF(String cPF) {
 		CPF = cPF;
 	}
+	
 	
 	
  	

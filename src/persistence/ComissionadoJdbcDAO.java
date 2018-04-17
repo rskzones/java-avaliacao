@@ -52,5 +52,30 @@ public class ComissionadoJdbcDAO {
 		}
 		return comissionado;
 		}
+		
+		public void alterar(Comissionado c) throws SQLException {
+			String sql = "update comissionado set Total_vendas='"+c.getTotalVenda()+"',Taxa_comissionado='"+c.getTaxaComissao()+"'where id_comissionado='"+c.getIdComissionado()+"';";
+			System.out.println(sql);
+			PreparedStatement prepareStatement;
+			try {
+				prepareStatement = this.conn.prepareStatement(sql);
+				prepareStatement.executeUpdate();
+	            prepareStatement.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}		
+		}
+		
+		public void excluir(int id) {
+			String sql = "delete from comissionado where id_comissionado='"+id+"';";
+			System.out.println(sql);
+	        try {
+	    		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
+	    		prepareStatement.executeUpdate();
+				prepareStatement.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}             		
+		}
 }
-
+		

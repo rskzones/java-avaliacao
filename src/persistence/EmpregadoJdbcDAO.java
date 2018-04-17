@@ -28,7 +28,7 @@ private Connection conn;
 	}
 	
 	public List<Empregado> listar() {
-		String sql = "select * from alunos";
+		String sql = "select * from tbempregado";
         System.out.println(sql);		
         List<Empregado> clientes = new ArrayList<Empregado>();
 		try {
@@ -54,5 +54,28 @@ private Connection conn;
 		}
 		return clientes;
 	}
+	public void alterar(Empregado c) throws SQLException {
+		String sql = "update tbempregado set nome='"+c.getNome()+"',sobrenome='"+c.getSobrenome()+"',CPF='"+c.getCPF()+"'where idEmpregado='"+c.getIdEmpregado()+"';";
+		System.out.println(sql);
+		PreparedStatement prepareStatement;
+		try {
+			prepareStatement = this.conn.prepareStatement(sql);
+			prepareStatement.executeUpdate();
+            prepareStatement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}		
+	}
 	
+	public void excluir(int id) {
+		String sql = "delete from tbempregado where idEmpregado='"+id+"';";
+		System.out.println(sql);
+        try {
+    		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
+    		prepareStatement.executeUpdate();
+			prepareStatement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}             		
+	}
 }

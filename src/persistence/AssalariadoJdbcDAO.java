@@ -47,11 +47,14 @@ public class AssalariadoJdbcDAO {
 
 			}
 			prepareStatement1.close();
-		} catch (SQLException e) {
+		} 
+		catch (SQLException e) {
 			e.printStackTrace();
 		}
-		/*public void alterar(Assalariado c) throws SQLException {
-			String sql = "update tb_clientes set nome='"+c.getNome()+"',endereco='"+c.getEndereco()+"',fone='"+c.getFone()+"',email='"+c.getEmail()+"' where id_cliente='"+c.getId_cliente()+"';";
+		return Assalariado;
+	}
+		public void alterar(Assalariado c) throws SQLException {
+			String sql = "update assalariado set Salario='"+c.getSalario()+"';";
 			System.out.println(sql);
 			PreparedStatement prepareStatement;
 			try {
@@ -64,7 +67,7 @@ public class AssalariadoJdbcDAO {
 		}
 		
 		public void excluir(int id) {
-			String sql = "delete from tb_clientes where id_cliente='"+id+"';";
+			String sql = "delete from assalariado where id_salario='"+id+"';";
 			System.out.println(sql);
 	        try {
 	    		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
@@ -72,8 +75,6 @@ public class AssalariadoJdbcDAO {
 				prepareStatement.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
-			}             */   		
-		
-		return Assalariado;
-	}
+			}             		
+		}	
 }
