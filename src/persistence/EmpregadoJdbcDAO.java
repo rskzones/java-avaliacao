@@ -20,7 +20,7 @@ private Connection conn;
 	
 	
 	public void salvar(Empregado e) throws SQLException {
-		String sql = "insert into tbempregado (nome, sobrenome, CPF) values ('"+e.getNome()+"','"+e.getSobrenome()+"','"+e.getCPF()+"')";
+		String sql = "insert into tbEmpregado (nome, sobrenome, CPF) values ('"+e.getNome()+"','"+e.getSobrenome()+"','"+e.getCPF()+"')";
 		System.out.println(sql);
 		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
 		prepareStatement.executeUpdate();
@@ -28,7 +28,7 @@ private Connection conn;
 	}
 	
 	public List<Empregado> listar() {
-		String sql = "select * from tbempregado";
+		String sql = "select * from tbEmpregado";
         System.out.println(sql);		
         List<Empregado> clientes = new ArrayList<Empregado>();
 		try {
@@ -55,7 +55,7 @@ private Connection conn;
 		return clientes;
 	}
 	public void alterar(Empregado c) throws SQLException {
-		String sql = "update tbempregado set nome='"+c.getNome()+"',sobrenome='"+c.getSobrenome()+"',CPF='"+c.getCPF()+"'where idEmpregado='"+c.getIdEmpregado()+"';";
+		String sql = "update tbEmpregado set nome='"+c.getNome()+"',sobrenome='"+c.getSobrenome()+"',CPF='"+c.getCPF()+"'where idEmpregado='"+c.getIdEmpregado()+"';";
 		System.out.println(sql);
 		PreparedStatement prepareStatement;
 		try {
@@ -68,7 +68,7 @@ private Connection conn;
 	}
 	
 	public void excluir(int id) {
-		String sql = "delete from tbempregado where idEmpregado='"+id+"';";
+		String sql = "delete from tbEmpregado where idEmpregado='"+id+"';";
 		System.out.println(sql);
         try {
     		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);

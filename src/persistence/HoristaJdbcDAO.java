@@ -66,7 +66,7 @@ import model.Horista;
 	}
 	
 	public void excluir(int id) {
-		String sql = "delete from horista where idHorista='"+id+"';";
+		String sql = "delete from tbHorista where idHorista='"+id+"';";
 		System.out.println(sql);
         try {
     		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);

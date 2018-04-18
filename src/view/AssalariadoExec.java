@@ -20,6 +20,8 @@ public class AssalariadoExec {
 		
 		AssalariadoJdbcDao.salvar(assalariado);
 		AssalariadoJdbcDao.listar();
+		AssalariadoJdbcDao.alterar(assalariado);
+		AssalariadoJdbcDao.excluir(1);
 		
 		}catch (Exception e) {
 			e.printStackTrace();

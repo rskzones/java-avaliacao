@@ -17,7 +17,7 @@ public class ComissionadoJdbcDAO {
 	}
 
 	public void salvar(Comissionado c) throws SQLException {
-		String sql = "insert into comissionado(total_vendas,taxa_comissao ) values ('"+c.getTotalVenda()+ "','" + c.getTaxaComissao()+"')";
+		String sql = "insert into tbComissionado(totalVendas, taxaComissao ) values ('"+c.getTotalVenda()+ "','" + c.getTaxaComissao()+"')";
 		System.out.println(sql);
 		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
 		prepareStatement.executeUpdate();
@@ -25,7 +25,7 @@ public class ComissionadoJdbcDAO {
 	}
 	        
 		public List<Comissionado> listar() {
-			String sql = "select * from comissionado";
+			String sql = "select * from tbComissionado";
 	        System.out.println(sql);
 		List<Comissionado> comissionado = new ArrayList<Comissionado>();
 		try {
@@ -54,7 +54,7 @@ public class ComissionadoJdbcDAO {
 		}
 		
 		public void alterar(Comissionado c) throws SQLException {
-			String sql = "update comissionado set Total_vendas='"+c.getTotalVenda()+"',Taxa_comissionado='"+c.getTaxaComissao()+"'where id_comissionado='"+c.getIdComissionado()+"';";
+			String sql = "update tbComissionado set totalVendas ='"+c.getTotalVenda()+"',taxaComissao='"+c.getTaxaComissao()+"'where idComissionado='"+c.getIdComissionado()+"';";
 			System.out.println(sql);
 			PreparedStatement prepareStatement;
 			try {
@@ -67,7 +67,7 @@ public class ComissionadoJdbcDAO {
 		}
 		
 		public void excluir(int id) {
-			String sql = "delete from comissionado where id_comissionado='"+id+"';";
+			String sql = "delete from tbComissionado where idComissionado ='"+id+"';";
 			System.out.println(sql);
 	        try {
 	    		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);

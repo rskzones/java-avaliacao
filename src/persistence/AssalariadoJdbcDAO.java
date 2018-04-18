@@ -19,13 +19,13 @@ public class AssalariadoJdbcDAO {
 	}
 
 	public void salvar(Assalariado a) throws SQLException {
-		String sql = "insert into assalariado(salario) values ('"+a.getSalario()+"')";
+		String sql = "insert into tbAssalariado(salario) values ('"+a.getSalario()+"')";
 		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
 		prepareStatement.executeUpdate();
         prepareStatement.close();
 	}
 	public List<Assalariado> listar() {
-		String sql = "select * from assalariado";
+		String sql = "select * from tbAssalariado";
 	    System.out.println(sql);
 		List<Assalariado> Assalariado = new ArrayList<Assalariado>();
 		try {
@@ -33,7 +33,7 @@ public class AssalariadoJdbcDAO {
 			ResultSet rs = prepareStatement1.executeQuery();
 			while (rs.next()) {
 
-				String salario = rs.getString("Salario");
+				String salario = rs.getString("salario");
 				
 				Assalariado assalariado = new Assalariado();
 
@@ -54,7 +54,7 @@ public class AssalariadoJdbcDAO {
 		return Assalariado;
 	}
 		public void alterar(Assalariado c) throws SQLException {
-			String sql = "update assalariado set Salario='"+c.getSalario()+"';";
+			String sql = "update tbAssalariado set salario='"+c.getSalario()+"';";
 			System.out.println(sql);
 			PreparedStatement prepareStatement;
 			try {
@@ -67,7 +67,7 @@ public class AssalariadoJdbcDAO {
 		}
 		
 		public void excluir(int id) {
-			String sql = "delete from assalariado where id_salario='"+id+"';";
+			String sql = "delete from tbAssalariado where idAssalariado='"+id+"';";
 			System.out.println(sql);
 	        try {
 	    		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
